@@ -91,8 +91,8 @@ var wayPoints = [
     }, 
     {
         name: "Presbyterian Church", 
-        lat: 37.30295745193707, 
-        long: -78.3934311569467, 
+        lat: 37.30298473503189, 
+        long: -78.39327223606257, 
         desc: "", 
         link: "#"
     }, 
@@ -158,18 +158,20 @@ createMapMarkers(wayPoints);
 
 //create circle at moton
 
-var userPositionCircle = L.circle([wayPoints[0].lat, wayPoints[0].long]).addTo(map); 
+var userPositionCircle = L.circle([wayPoints[0].lat, wayPoints[0].long], 15).addTo(mymap); 
 
 
 
 function onLocationFound(e) {
-   // var radius = e.accuracy / 2;
-
-   // if (!)
-   //  L.circle(e.latlng, radius).addTo(map);
+   console.log(e); 
+   userPositionCircle.setLatLng([e.latitude, e.longitude]); 
+   
 }
 
 mymap.locate({watch:true, enableHighAccuracy:true}); 
 
 
-mymap.on('locationfound', onLocationFound);    
+mymap.on('locationfound', onLocationFound);   
+
+
+
