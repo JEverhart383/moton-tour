@@ -15,10 +15,11 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 
 
 /****
-    Add Markers
+    Create Walking Tour Object 
 ***/
 
-var wayPoints = [
+window.motonWalkingTour =  {
+    wayPoints: [
     {
         name: "Moton Musuem", 
         lat: 37.29168827648954, 
@@ -138,35 +139,46 @@ var wayPoints = [
         desc: "", 
         link: "#"
     }
-    ]
-
-function createMapMarkers(arrayOfWayPoints){
+    ], 
+    createMapMarkers: function(arrayOfWayPoints){
 
     for (var i = 0; i < arrayOfWayPoints.length; i ++){
             L.marker([arrayOfWayPoints[i].lat, arrayOfWayPoints[i].long]).addTo(mymap)
-             .bindPopup(arrayOfWayPoints[i].name);
-
-
+             .bindPopup("<h5>" + arrayOfWayPoints[i].name + "<h5><p>");
+        }
+    }, 
+    currentUserPosition: {
+        lat: "", 
+        lng: ""
+    }, 
+    findMyLocation: function(){
+        mymap.setView(window.motonWalkingTour.currentUserPosition, 17);
     }
 
-}
+
+};
+
 
 //call to create markers 
 
-createMapMarkers(wayPoints); 
-
+motonWalkingTour.createMapMarkers(motonWalkingTour.wayPoints); 
 
 //create circle at moton
-
-var userPositionCircle = L.circle([wayPoints[0].lat, wayPoints[0].long], 15).addTo(mymap); 
 
 
 
 function onLocationFound(e) {
    console.log(e); 
-   userPositionCircle.setLatLng([e.latitude, e.longitude]); 
+   userPositionCircle.setLatLng([e.latitude, e.longitude]);
+   window.motonWalkingTour.currentUserPosition.lat = e.latitude;
+   window.motonWalkingTour.currentUserPosition.lng = e.longitude;  
    
 }
+
+var userPositionCircle = L.circle(
+        [window.motonWalkingTour.wayPoints[0].lat, 
+        window.motonWalkingTour.wayPoints[0].long]
+        ).addTo(mymap); 
 
 mymap.locate({watch:true, enableHighAccuracy:true}); 
 
