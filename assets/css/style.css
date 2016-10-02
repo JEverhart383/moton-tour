@@ -1,3 +1,22 @@
+h1, h2, h3, 
+h4, h5 {
+	font-family: 'Oswald', sans-serif; 
+}
+
+body {
+	font-family: 'Open Sans', sans-serif; 
+	background-color: #90D4D5; 
+	color: #303434;
+	font-size: 18px;
+}
+
+.img-thumbnail {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	min-height: 250px;
+	max-height:325px;
+}
+
 .header {
 	text-align: center;
 }
@@ -14,6 +33,10 @@
 .home-panel {
 	background-color: #000; 
 	opacity: .5; 
+}
+
+.panel-default {
+	border-color:#90D4D5;  
 }
 
 .stories-panel {
@@ -34,4 +57,21 @@
 .places-panel {
 	background: url("http://www.motonmuseum.org/wp/wp/wp-content/uploads/2010/03/Free-School-opening-day-1963.jpg") no-repeat center;
 	background-size: cover; 
+}
+
+.header-img {
+	max-height: 200px;
+}
+
+.btn-primary {
+	background-color: #b1d677;
+	border-color: #98b766;
+}
+
+.btn-primary:hover, 
+.btn-primary:active, 
+.btn-primary:focus, 
+.btn-primary:active:focus {
+	background-color: #A4c76f;
+	border-color: #8BA85E;
 }

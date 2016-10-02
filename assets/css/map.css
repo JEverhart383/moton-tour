@@ -3,7 +3,7 @@
 		    padding-top: 70px;
 		    margin: 0;
 		    margin-bottom: -20px;
-		    background-color: #f8f8f8; 
+		    background-color: #90d4d5; 
 		}
 
 		html, body, #map {
@@ -15,4 +15,22 @@
 		}
 		.navbar {
 			margin-bottom: 0;
+		}
+
+		.navbar-default {
+			background-color: #90d4d5;
+			border-color: #90d4d5;
+		}
+
+		.navbar-brand a {
+			text-decoration: none;
+			color: #303434;;
+		}
+		.navbar-default, 
+		.navbar-default .navbar-brand{
+			color: #303434;
+		} 
+
+		.btn-default {
+			color: #303434;
 		}
