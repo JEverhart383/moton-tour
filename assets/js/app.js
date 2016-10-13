@@ -156,7 +156,7 @@ window.motonWalkingTour =  {
             && window.motonWalkingTour.currentUserPosition.lng != undefined ){
             mymap.setView(window.motonWalkingTour.currentUserPosition, 17);
         } else {
-            alert("Sorry, it doesn't look like your web browser supports GeoLoation. Try accessing a secure version of this map at https://civilrightstrail.motonmuseum.org"); 
+            $(".modal").modal(); 
         }
     }
 
